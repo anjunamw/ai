@@ -1,0 +1,3 @@
+# frontend/.eslintignore
+node_modules
+dist

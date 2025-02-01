@@ -1,0 +1,38 @@
+# backend/data/sample_recipes.json
+[
+    {
+        "recipe_name": "Classic Margherita Pizza",
+        "ingredients": [
+            {"name": "Pizza Dough", "quantity": "1 ball"},
+            {"name": "Tomato Sauce", "quantity": "1/2 cup"},
+            {"name": "Fresh Mozzarella", "quantity": "4 oz"},
+            {"name": "Fresh Basil Leaves", "quantity": "1/4 cup"},
+            {"name": "Olive Oil", "quantity": "1 tbsp"},
+            {"name": "Salt", "quantity": "1/4 tsp"}
+        ],
+        "instructions": "Preheat oven to 475°F (245°C). Roll out pizza dough. Spread tomato sauce evenly. Top with mozzarella, basil leaves, olive oil, and salt. Bake for 12-15 minutes or until crust is golden brown and cheese is melted."
+    },
+    {
+        "recipe_name": "Spaghetti Carbonara",
+        "ingredients": [
+            {"name": "Spaghetti", "quantity": "8 oz"},
+            {"name": "Guanciale or Pancetta", "quantity": "4 oz"},
+            {"name": "Eggs", "quantity": "3"},
+            {"name": "Pecorino Romano Cheese", "quantity": "1/2 cup"},
+            {"name": "Black Pepper", "quantity": "1 tsp"},
+            {"name": "Salt", "quantity": "1/2 tsp"}
+        ],
+        "instructions": "Cook spaghetti according to package directions. Dice guanciale or pancetta and cook in a pan until crispy. Whisk eggs with pecorino romano cheese and black pepper. Drain spaghetti and add it to the pan with guanciale. Remove from heat and quickly mix in the egg mixture. Serve immediately with a sprinkle of extra cheese."
+    },
+  {
+        "recipe_name": "Simple Chicken Salad",
+        "ingredients": [
+            {"name": "Cooked Chicken", "quantity": "2 cups"},
+            {"name": "Celery", "quantity": "1/2 cup"},
+            {"name": "Mayonnaise", "quantity": "1/4 cup"},
+             {"name": "Salt", "quantity": "1/4 tsp"},
+             {"name": "Black Pepper", "quantity": "1/8 tsp"}
+        ],
+        "instructions": "Dice the cooked chicken and celery. Add mayonnaise, salt and black pepper.  Mix together and serve with crackers or a sandwich."
+    }
+]

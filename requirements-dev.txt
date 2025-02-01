@@ -1,0 +1,11 @@
+# requirements-dev.txt
+bandit
+black
+flake8
+isort
+mypy
+pylint
+pytest
+pytest-asyncio
+pytest-cov
+pydeps

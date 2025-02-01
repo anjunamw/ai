@@ -1,0 +1,30 @@
+    version: "3.9"
+    services:
+      backend:
+        build: .
+        ports:
+          - "5000:5000"
+        volumes:
+          - ./backend:/app/backend
+          - ./projects:/app/projects
+          - /mnt/nvme2/MASTER_DATA:/app/MASTER_DATA
+          - /mnt/DEV/MASTER_DATA:/app/DEV_MASTER_DATA
+        environment:
+          - OLLAMA_HOST=http://host.docker.internal:11434
+          - HF_TOKEN=${HF_TOKEN}
+        depends_on:
+          - data_collection
+      frontend:
+        build: ./frontend
+        ports:
+          - "3000:3000"
+        volumes:
+          - ./frontend:/app/frontend
+        depends_on:
+          - backend
+      data_collection:
+        build: .
+        volumes:
+          - ./backend:/app/backend
+          - ./data_collection:/app/data_collection
+        entrypoint: ["python", "/app/backend/data_collection.py", "--agent_id", "your_agent_id"]
