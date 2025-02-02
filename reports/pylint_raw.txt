@@ -1,1 +1,0 @@
-The config file .pylintrc doesn't exist!
