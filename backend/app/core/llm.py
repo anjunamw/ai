@@ -1,55 +1,43 @@
-# backend/app/core/llm.py
-import os
-from typing import Dict, List
+"""
+llm.py
+
+Provides functions to generate text and chat responses using OpenAI's API.
+"""
 
 import openai
+import logging
+from backend.app.core.config import Settings
 
-from backend.app.core.config import settings
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-openai.api_key = settings.OPENAI_API_KEY
+openai.api_key = Settings.OPENAI_API_KEY
 
 
-def generate_text(
-    prompt: str,
-    model: str = "gpt-3.5-turbo",
-    temperature: float = 0.7,
-    max_tokens: int = 1000,
-) -> str | None:
+def generate_text(prompt: str, model: str = "gpt-3.5-turbo", temperature: float = 0.7,
+                  max_tokens: int = 1000) -> str | None:
     try:
-        if not openai.api_key:
-            print("OpenAI API key not configured.")
-            return None
-
-        response = openai.chat.completions.create(
+        response = openai.ChatCompletion.create(
             model=model,
             messages=[{"role": "user", "content": prompt}],
             temperature=temperature,
             max_tokens=max_tokens,
         )
-        return response.choices[0].message.content
+        return response.choices[0].message.content.strip()
     except Exception as e:
-        print(f"Error during LLM interaction: {e}")
+        logging.error(f"Error during LLM generate_text: {e}")
         return None
 
 
-def generate_chat(
-    messages: List[Dict[str, str]],
-    model: str = "gpt-3.5-turbo",
-    temperature: float = 0.7,
-    max_tokens: int = 1000,
-) -> str | None:
+def generate_chat(messages: list[dict[str, str]], model: str = "gpt-3.5-turbo", temperature: float = 0.7,
+                  max_tokens: int = 1000) -> str | None:
     try:
-        if not openai.api_key:
-            print("OpenAI API key not configured.")
-            return None
-
-        response = openai.chat.completions.create(
+        response = openai.ChatCompletion.create(
             model=model,
             messages=messages,
             temperature=temperature,
             max_tokens=max_tokens,
         )
-        return response.choices[0].message.content
+        return response.choices[0].message.content.strip()
     except Exception as e:
-        print(f"Error during LLM interaction: {e}")
+        logging.error(f"Error during LLM generate_chat: {e}")
         return None
